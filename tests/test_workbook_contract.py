@@ -95,3 +95,15 @@ def test_cli_machine_readable_exit_codes(tmp_path: Path) -> None:
     result = subprocess.run(args, capture_output=True, text=True, check=False)
     assert result.returncode == 2
     assert json.loads(result.stdout)["status"] == "BLOCKED"
+
+
+def test_bundled_sample_passes_external_contract(tmp_path: Path) -> None:
+    """Ensure the checked-in report contract matches the actual report generator."""
+    sys.path.insert(0, str(ROOT / "src"))
+    from generate_expense_report import run_report
+
+    out = tmp_path / "output"
+    assert run_report(ROOT / "input", out) == 0
+    cfg = json.loads((ROOT / "contracts" / "expense-report.json").read_text(encoding="utf-8"))
+    result = audit(out / "Expense_Report_2026-01.xlsx", cfg)
+    assert result["status"] == "PASS", result["findings"]
