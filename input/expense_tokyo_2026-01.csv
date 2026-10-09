@@ -1,0 +1,51 @@
+﻿Date,Office,Department,Employee,ExpenseType,Amount,Currency,Description
+2026-01-30,tokyo,Sales,Ethan Wong,Other,$453.51,USD,Team lunch
+2026-01-11,tokyo,IT,Ethan Wong,Software,$34.20, USD ,Skills workshop
+2026-01-18,tokyo,IT,Maya Chen,Software,386.9,USD,Skills workshop
+2026-01-04, Tokyo ,Operations,Hana Sato,Telecom,914.86,usd,Printer paper and folders
+2026-01-13, Tokyo ,Admin,Ethan Wong,Travel,580.62, USD ,Printer paper and folders
+2026-01-18, Tokyo ,Admin,Hana Sato,Office Supplies,13.59,USD,Mobile plan
+2026-01-22,Tokyo,Sales,Ethan Wong,Telecom,875.68,usd,Monthly software license
+2026-01-05,Tokyo,Operations,Liam Brown,Telecom,389.45, USD ,Team lunch
+2026-01-18,Tokyo,Sales,Ethan Wong,Meal,589.35,usd,Project supplies
+2026-01-15,tokyo,Operations,Priya Kumar,Training,556.03,usd,Project supplies
+2026-01-06, Tokyo ,IT,Ethan Wong,Training,857.31, USD ,Mobile plan
+2026-01-31,Tokyo,Sales,Priya Kumar,Other,$592.87,USD,Team lunch
+2026-01-16, Tokyo ,IT,Sara Lee,Office Supplies,34.91, USD ,Skills workshop
+2026-01-16,tokyo,Admin,Noah Smith,Telecom,194.38, USD ,Client visit
+2026-01-29,Tokyo,Operations,Priya Kumar,Meal,849.31, USD ,Skills workshop
+2026-01-30,Tokyo,Operations,Noah Smith,Other,447.75,usd,Mobile plan
+2026-01-11,tokyo,HR,Liam Brown,Other,510.2, USD ,Printer paper and folders
+2026-01-16,tokyo,Sales,Priya Kumar,Other,853.58, USD ,Monthly software license
+2026-01-21,Tokyo,Sales,Sara Lee,Travel,730.33, USD ,Monthly software license
+2026-01-29, Tokyo ,IT,Noah Smith,Meal,231.95,USD,Printer paper and folders
+2026-01-03,tokyo,Operations,Hana Sato,Training,662.92,usd,Printer paper and folders
+2026-01-13, Tokyo ,IT,Liam Brown,Office Supplies,70.41,USD,Monthly software license
+2026-01-29,tokyo,HR,Priya Kumar,Office Supplies,292.1,USD,Monthly software license
+2026-01-11, Tokyo ,Operations,Noah Smith,Other,$420.81,usd,Team lunch
+2026-01-30,tokyo,HR,Alex Tan,Travel,931.92, USD ,Printer paper and folders
+2026-01-02,tokyo,Operations,Hana Sato,Meal,139.29,usd,Monthly software license
+2026-01-09,tokyo,Sales,Maya Chen,Office Supplies,328.58,USD,Mobile plan
+2026-01-12,Tokyo,IT,Alex Tan,Other,517.98,USD,Team lunch
+2026-01-05,Tokyo,Admin,Sara Lee,Telecom,$199.00,USD,Skills workshop
+2026-01-09,tokyo,Admin,Maya Chen,Other,901.0,USD,Monthly software license
+2026-01-10, Tokyo ,Operations,Liam Brown,Telecom,$113.40,USD,Client visit
+2026-01-08,Tokyo,Sales,Maya Chen,Other,567.39, USD ,Project supplies
+2026-01-22,tokyo,IT,Hana Sato,Travel,50.52,usd,Project supplies
+2026-01-12, Tokyo ,Operations,Noah Smith,Office Supplies,471.81,USD,Mobile plan
+2026-01-20, Tokyo ,Operations,Sara Lee,Office Supplies,501.4, USD ,Skills workshop
+2026-01-27,Tokyo,Sales,Sara Lee,Meal,263.76,usd,Skills workshop
+2026-01-01,tokyo,Sales,Noah Smith,Office Supplies,584.49,USD,Monthly software license
+2026-01-29, Tokyo ,Sales,Alex Tan,Training,760.37,USD,Client visit
+2026-01-18,Tokyo,Operations,Sara Lee,Office Supplies,238.39,USD,Client visit
+2026-01-08,tokyo,HR,Hana Sato,Office Supplies,287.99, USD ,Skills workshop
+2026-01-18,tokyo,Sales,Sara Lee,Software,334.44,usd,Monthly software license
+2026-01-11,Tokyo,HR,Noah Smith,Meal,228.24,USD,Mobile plan
+2026-01-25, Tokyo ,HR,Ethan Wong,Travel,466.18,USD,Monthly software license
+2026-01-01, Tokyo ,HR,Noah Smith,Software,$225.38,USD,Client visit
+2026-01-05, Tokyo ,Operations,Maya Chen,Other,531.05,USD,Skills workshop
+2026-01-11,Tokyo,IT,Ethan Wong,Other,278.71,usd,Client visit
+2026-01-03, Tokyo ,IT,Noah Smith,Meal,783.14, USD ,Monthly software license
+2026-01-18,tokyo,HR,Priya Kumar,Other,91.9, USD ,Printer paper and folders
+2026-01-28, Tokyo ,Operations,Ethan Wong,Training,434.58, USD ,Client visit
+2026-01-31,Tokyo,Admin,Ethan Wong,Telecom,583.83,USD,Team lunch

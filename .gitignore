@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+output/*.xlsx
+output/process_log.txt
+.DS_Store
+Thumbs.db

@@ -1,0 +1,51 @@
+﻿Date,Office,Department,Employee,ExpenseType,Amount,Currency,Description
+2026-01-06,London,Operations,Sara Lee,Telecom,236.99, USD ,Printer paper and folders
+2026-01-23,london,Operations,Maya Chen,Telecom,285.2,USD,Monthly software license
+2026-01-22,London,Operations,Maya Chen,Training,750.98,USD,Mobile plan
+2026-01-05,London,IT,Noah Smith,Other,151.75,usd,Skills workshop
+2026-01-10,london,IT,Sara Lee,Telecom,714.52,usd,Mobile plan
+2026-01-18,london,Operations,Maya Chen,Training,389.55,USD,Printer paper and folders
+2026-01-01,London,Admin,Alex Tan,Other,700.99, USD ,Project supplies
+2026-01-25,London,Operations,Sara Lee,Software,$264.80,USD,Skills workshop
+2026-01-03,london,Sales,Liam Brown,Software,420.86,usd,Mobile plan
+2026-01-14, London ,Operations,Ethan Wong,Telecom,$110.11,usd,Project supplies
+2026-01-03,london,Sales,Hana Sato,Travel,$725.35,usd,Project supplies
+2026-01-22, London ,Operations,Liam Brown,Travel,494.69,USD,Skills workshop
+2026-01-21,london,IT,Priya Kumar,Software,351.35, USD ,Team lunch
+2026-01-23,london,IT,Alex Tan,Telecom,882.16, USD ,Project supplies
+2026-01-18,London,HR,Liam Brown,Travel,$236.46,USD,Project supplies
+2026-01-04, London ,Admin,Sara Lee,Telecom,868.33,usd,Skills workshop
+2026-01-16,london,Admin,Sara Lee,Training,673.68,USD,Printer paper and folders
+2026-01-24,London,IT,Ethan Wong,Other,190.79,usd,Monthly software license
+2026-01-27,London,Sales,Ethan Wong,Other,888.32, USD ,Skills workshop
+2026-01-05,london,HR,Sara Lee,Software,948.97,usd,Skills workshop
+2026-01-30,london,Admin,Priya Kumar,Training,727.57,usd,Team lunch
+2026-01-11, London ,Operations,Liam Brown,Office Supplies,814.94, USD ,Project supplies
+2026-01-16,London,Admin,Hana Sato,Other,781.86,USD,Project supplies
+2026-01-30,london,IT,Noah Smith,Office Supplies,$804.65, USD ,Team lunch
+2026-01-09,london,HR,Liam Brown,Telecom,82.19,USD,Project supplies
+2026-01-18,london,Sales,Sara Lee,Other,320.19, USD ,Client visit
+2026-01-22,london,Admin,Maya Chen,Office Supplies,591.18,USD,Project supplies
+2026-01-15,London,Sales,Alex Tan,Travel,606.46,usd,Project supplies
+2026-01-14,London,Admin,Liam Brown,Training,64.64, USD ,Project supplies
+2026-01-20,london,HR,Priya Kumar,Office Supplies,$180.89, USD ,Team lunch
+2026-01-15,london,IT,Sara Lee,Software,229.79, USD ,Skills workshop
+2026-01-12, London ,Sales,Liam Brown,Telecom,160.18,usd,Printer paper and folders
+2026-01-13,london,IT,Priya Kumar,Office Supplies,$804.90, USD ,Monthly software license
+2026-01-10,London,Operations,Ethan Wong,Travel,551.17, USD ,Project supplies
+2026-01-02, London ,Operations,Ethan Wong,Other,655.28,USD,Skills workshop
+2026-01-07, London ,Sales,Noah Smith,Telecom,764.21,USD,Mobile plan
+2026-01-15,London,HR,Hana Sato,Telecom,618.27,USD,Client visit
+2026-01-14,London,Admin,Noah Smith,Other,865.23, USD ,Monthly software license
+2026-01-27,London,Sales,Sara Lee,Other,509.94,usd,Mobile plan
+2026-01-15,London,Admin,Priya Kumar,Other,828.43, USD ,Mobile plan
+2026-01-28, London ,Sales,Maya Chen,Other,644.59,usd,Client visit
+2026-01-12, London ,Sales,Liam Brown,Other,$260.06, USD ,Monthly software license
+2026-01-01, London ,HR,Hana Sato,Training,113.63,USD,Mobile plan
+2026-01-30, London ,Sales,Liam Brown,Travel,71.3,USD,Client visit
+2026-01-16,London,IT,Priya Kumar,Training,899.59,USD,Printer paper and folders
+2026-01-24, London ,HR,Liam Brown,Training,437.52, USD ,Mobile plan
+2026-01-04,london,HR,Liam Brown,Software,156.94,USD,Mobile plan
+2026-01-31,London,Sales,Maya Chen,Telecom,359.56,usd,Skills workshop
+2026-01-02,london,Sales,Priya Kumar,Travel,857.79,usd,Client visit
+2026-01-20,London,IT,Hana Sato,Meal,633.68,USD,Project supplies

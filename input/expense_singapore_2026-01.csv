@@ -1,0 +1,67 @@
+﻿Date,Office,Department,Employee,ExpenseType,Amount,Currency,Description
+2026-01-09,Singapore,Admin,Noah Smith,Telecom,$611.78,USD,Mobile plan
+2026-01-19,singapore,IT,Alex Tan,Travel,706.75,USD,Team lunch
+2026-01-07, Singapore ,HR,Liam Brown,Meal,$486.02,usd,Skills workshop
+2026-01-25,Singapore,Operations,Hana Sato,Software,272.94,USD,Team lunch
+2026-01-03,singapore,IT,Hana Sato,Other,909.87,usd,Skills workshop
+2026-01-15, Singapore ,IT,Liam Brown,Travel,$260.12, USD ,Monthly software license
+2026-01-28,singapore,HR,Priya Kumar,Telecom,789.98,USD,Client visit
+2026-01-03,Singapore,IT,Liam Brown,Software,632.26,usd,Mobile plan
+2026-01-12,Singapore,Sales,Maya Chen,Training,$794.40, USD ,Team lunch
+2026-01-15,singapore,Sales,Priya Kumar,Telecom,513.02,usd,Project supplies
+2026-01-27,Singapore,Sales,Liam Brown,Software,$732.68,USD,Team lunch
+2026-01-23,singapore,Admin,Sara Lee,Office Supplies,868.52, USD ,Printer paper and folders
+2026-01-24, Singapore ,HR,Ethan Wong,Telecom,$146.01, USD ,Printer paper and folders
+2026-01-08,Singapore,HR,Sara Lee,Travel,854.16,USD,Project supplies
+2026-01-26, Singapore ,Operations,Maya Chen,Office Supplies,114.85,usd,Skills workshop
+2026-01-18,Singapore,IT,Ethan Wong,Other,946.36, USD ,Monthly software license
+2026-01-15,Singapore,Sales,Noah Smith,Training,116.64,USD,Project supplies
+2026-01-17, Singapore ,Admin,Noah Smith,Software,598.53,USD,Skills workshop
+2026-01-30,Singapore,HR,Hana Sato,Office Supplies,906.38,USD,Client visit
+2026-01-27,singapore,Admin,Alex Tan,Meal,883.49, USD ,Client visit
+2026-01-03, Singapore ,Admin,Noah Smith,Telecom,92.34,usd,Skills workshop
+2026-01-20,singapore,Admin,Priya Kumar,Telecom,166.89,usd,Printer paper and folders
+2026-01-15, Singapore ,Operations,Maya Chen,Meal,945.45,USD,Client visit
+2026-01-08, Singapore ,Admin,Alex Tan,Travel,329.12, USD ,Mobile plan
+2026-01-02,singapore,IT,Priya Kumar,Software,$67.22, USD ,Printer paper and folders
+2026-01-30, Singapore ,HR,Sara Lee,Meal,$212.95,usd,Project supplies
+2026-01-22,singapore,Sales,Liam Brown,Office Supplies,$393.82,usd,Project supplies
+2026-01-21,Singapore,IT,Liam Brown,Telecom,695.87,usd,Project supplies
+2026-01-07, Singapore ,Operations,Noah Smith,Office Supplies,820.25,USD,Monthly software license
+2026-01-03,singapore,HR,Maya Chen,Travel,445.95, USD ,Skills workshop
+2026-01-30,Singapore,Admin,Liam Brown,Office Supplies,796.19,usd,Team lunch
+2026-01-06,singapore,IT,Liam Brown,Software,823.04,usd,Monthly software license
+2026-01-26, Singapore ,Operations,Noah Smith,Meal,408.78,usd,Team lunch
+2026-01-18,Singapore,Sales,Alex Tan,Travel,920.65, USD ,Printer paper and folders
+2026-01-06,Singapore,HR,Maya Chen,Other,483.67,USD,Client visit
+2026-01-08,singapore,IT,Priya Kumar,Training,570.14, USD ,Client visit
+2026-01-19, Singapore ,HR,Hana Sato,Software,592.98,USD,Mobile plan
+2026-01-13,Singapore,Sales,Sara Lee,Software,683.79,USD,Client visit
+2026-01-04,Singapore,HR,Priya Kumar,Training,441.87,usd,Team lunch
+2026-01-29,Singapore,Sales,Ethan Wong,Meal,887.4,usd,Project supplies
+2026-01-26, Singapore ,HR,Alex Tan,Telecom,521.54, USD ,Monthly software license
+2026-01-29,Singapore,Sales,Maya Chen,Travel,$885.99, USD ,Skills workshop
+2026-01-07, Singapore ,Sales,Priya Kumar,Telecom,157.81, USD ,Project supplies
+2026-01-29,Singapore,IT,Liam Brown,Other,259.62,usd,Client visit
+2026-01-21,singapore,Admin,Sara Lee,Training,15.33, USD ,Printer paper and folders
+2026-01-31, Singapore ,Admin,Alex Tan,Other,$538.13,usd,Skills workshop
+2026-01-02,singapore,Sales,Alex Tan,Software,530.27,USD,Mobile plan
+2026-01-25, Singapore ,Operations,Noah Smith,Meal,$246.06,USD,Project supplies
+2026-01-01,Singapore,Sales,Liam Brown,Other,772.5, USD ,Project supplies
+2026-01-06, Singapore ,IT,Liam Brown,Other,701.48,USD,Project supplies
+,Singapore,IT,Alex Tan,Meal,45.25,USD,Team lunch
+01/15/2026,Singapore,IT,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,,IT,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,Paris,IT,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,London,IT,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,Singapore,,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,Singapore,Legal,Alex Tan,Meal,45.25,USD,Team lunch
+2026-01-15,Singapore,IT,,Meal,45.25,USD,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,,45.25,USD,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Parking,45.25,USD,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Meal,USD 120.50,USD,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Meal,0,USD,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Meal,45.25,,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Meal,45.25,EUR,Team lunch
+2026-01-15,Singapore,IT,Alex Tan,Meal,45.25,USD,
+,Singapore,,Alex Tan,Meal,not available,EUR,
