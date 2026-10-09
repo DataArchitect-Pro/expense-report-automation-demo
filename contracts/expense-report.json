@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "required_sheets": {
+    "Summary": ["Metric", "Value"],
+    "Raw_Data": ["SourceFile", "RowNumber", "Amount", "IsValid", "ErrorType", "Original_Amount"],
+    "Error_Report": ["SourceFile", "RowNumber", "ErrorType", "Original_Amount"],
+    "By_Office": ["Office", "TotalAmount", "RecordCount"],
+    "By_Department": ["Department", "TotalAmount", "RecordCount"],
+    "By_ExpenseType": ["ExpenseType", "TotalAmount", "RecordCount"],
+    "Run_Log": ["Item", "Value"]
+  },
+  "summary": {"sheet": "Summary", "key_column": "Metric", "value_column": "Value"},
+  "forbid_formulas": true,
+  "row_count_checks": [
+    {"sheet": "Raw_Data", "summary_key": "Total Records"},
+    {"sheet": "Error_Report", "summary_key": "Error Records"}
+  ],
+  "sum_checks": [
+    {"sheet": "By_Office", "column": "TotalAmount", "summary_key": "Total Amount", "tolerance": "0.01"},
+    {"sheet": "By_Department", "column": "TotalAmount", "summary_key": "Total Amount", "tolerance": "0.01"},
+    {"sheet": "By_ExpenseType", "column": "TotalAmount", "summary_key": "Total Amount", "tolerance": "0.01"}
+  ]
+}
