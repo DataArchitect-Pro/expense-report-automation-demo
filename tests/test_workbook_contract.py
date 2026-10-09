@@ -107,3 +107,164 @@ def test_bundled_sample_passes_external_contract(tmp_path: Path) -> None:
     cfg = json.loads((ROOT / "contracts" / "expense-report.json").read_text(encoding="utf-8"))
     result = audit(out / "Expense_Report_2026-01.xlsx", cfg)
     assert result["status"] == "PASS", result["findings"]
+
+
+# --- Hardening tests (negative fixtures) -----------------------------------
+import zipfile  # noqa: E402
+
+import pytest  # noqa: E402
+from workbook_contract import MAX_FINDINGS  # noqa: E402
+
+TOOL = ROOT / "tools" / "workbook_contract.py"
+
+
+def run_cli(*args: object) -> subprocess.CompletedProcess:
+    return subprocess.run([sys.executable, str(TOOL), *map(str, args)], capture_output=True, text=True, check=False)
+
+
+def write_contract(path: Path, cfg: dict | None = None) -> Path:
+    path.write_text(json.dumps(cfg if cfg is not None else contract()), encoding="utf-8")
+    return path
+
+
+@pytest.mark.parametrize("bad_version", [True, 1.0, "1"])
+def test_schema_version_must_be_integer_one(tmp_path: Path, bad_version: object) -> None:
+    with pytest.raises(ContractError):
+        audit(workbook(tmp_path / "g.xlsx"), {**contract(), "schema_version": bad_version})
+
+
+def test_unknown_contract_keys_are_rejected(tmp_path: Path) -> None:
+    """A typo such as 'forbid_formula' must not silently disable a check."""
+    cfg = {**contract(), "forbid_formula": True}
+    with pytest.raises(ContractError):
+        audit(workbook(tmp_path / "g.xlsx"), cfg)
+    cfg = contract()
+    cfg["sum_checks"][0]["tolerence"] = "0.01"
+    with pytest.raises(ContractError):
+        audit(workbook(tmp_path / "g.xlsx"), cfg)
+
+
+def test_check_column_must_be_declared_in_required_sheets(tmp_path: Path) -> None:
+    cfg = contract()
+    cfg["sum_checks"][0]["column"] = "NotDeclared"
+    with pytest.raises(ContractError):
+        audit(workbook(tmp_path / "g.xlsx"), cfg)
+
+
+def test_text_typed_number_is_not_a_numeric_cell(tmp_path: Path) -> None:
+    path = workbook(tmp_path / "t.xlsx")
+    from openpyxl import load_workbook
+    wb = load_workbook(path)
+    wb["Raw_Data"]["A2"] = "3.5"  # text that merely looks numeric
+    wb.save(path)
+    result = audit(path, contract())
+    assert "INVALID_SUM_CELL" in codes(result)
+
+
+def test_non_finite_and_boolean_cells_are_invalid(tmp_path: Path) -> None:
+    path = workbook(tmp_path / "t.xlsx")
+    from openpyxl import load_workbook
+    wb = load_workbook(path)
+    wb["Raw_Data"]["A2"] = True
+    wb["Raw_Data"]["A3"] = float("inf")
+    wb.save(path)
+    assert "INVALID_SUM_CELL" in codes(audit(path, contract()))
+
+
+def test_duplicate_metric_with_mixed_key_types(tmp_path: Path) -> None:
+    path = workbook(tmp_path / "d.xlsx")
+    from openpyxl import load_workbook
+    wb = load_workbook(path)
+    wb["Summary"].append(["Records", 2])
+    wb.save(path)
+    assert "DUPLICATE_METRIC" in codes(audit(path, contract()))
+
+
+def test_findings_are_capped_and_flagged(tmp_path: Path) -> None:
+    from openpyxl import load_workbook
+    path = workbook(tmp_path / "many.xlsx")
+    wb = load_workbook(path)
+    raw = wb["Raw_Data"]
+    for _ in range(MAX_FINDINGS + 50):
+        raw.append(["not-a-number", "x"])
+    wb.save(path)
+    result = audit(path, {**contract(), "row_count_checks": []})
+    assert result["status"] == "FAIL"
+    assert len(result["findings"]) <= MAX_FINDINGS + 1
+    assert result["findings"][-1]["code"] == "FINDINGS_TRUNCATED"
+
+
+def test_oversized_workbook_is_blocked(tmp_path: Path) -> None:
+    good = workbook(tmp_path / "g.xlsx")
+    with pytest.raises(ContractError):
+        audit(good, contract(), max_bytes=100)
+    proc = run_cli(good, "--contract", write_contract(tmp_path / "c.json"), "--max-bytes", "100")
+    assert proc.returncode == 2 and json.loads(proc.stdout)["status"] == "BLOCKED"
+
+
+def test_corrupt_sheet_xml_is_blocked_not_a_crash(tmp_path: Path) -> None:
+    good = workbook(tmp_path / "g.xlsx")
+    bad = tmp_path / "bad.xlsx"
+    with zipfile.ZipFile(good) as zin, zipfile.ZipFile(bad, "w") as zout:
+        for info in zin.infolist():
+            data = zin.read(info.filename)
+            if info.filename == "xl/worksheets/sheet2.xml":
+                data = data[: len(data) // 2]
+            zout.writestr(info, data)
+    proc = run_cli(bad, "--contract", write_contract(tmp_path / "c.json"))
+    assert proc.returncode == 2, proc.stderr
+    assert json.loads(proc.stdout)["status"] == "BLOCKED"
+    assert "Traceback" not in proc.stderr
+
+
+def test_non_xlsx_and_directory_inputs_are_blocked(tmp_path: Path) -> None:
+    rules = write_contract(tmp_path / "c.json")
+    junk = tmp_path / "junk.xlsx"
+    junk.write_text("not a zip", encoding="utf-8")
+    assert run_cli(junk, "--contract", rules).returncode == 2
+    assert run_cli(tmp_path, "--contract", rules).returncode == 2
+
+
+def test_output_may_not_overwrite_inputs(tmp_path: Path) -> None:
+    good = workbook(tmp_path / "g.xlsx")
+    rules = write_contract(tmp_path / "c.json")
+    before = good.read_bytes()
+    proc = run_cli(good, "--contract", rules, "--output", good)
+    assert proc.returncode == 2
+    assert good.read_bytes() == before
+    contract_before = rules.read_bytes()
+    assert run_cli(good, "--contract", rules, "--output", rules).returncode == 2
+    assert rules.read_bytes() == contract_before
+
+
+def test_blocked_report_does_not_leak_paths(tmp_path: Path) -> None:
+    secret_dir = tmp_path / "confidential-customer-dir"
+    secret_dir.mkdir()
+    missing = secret_dir / "payroll-secret.xlsx"
+    proc = run_cli(missing, "--contract", tmp_path / "no-such-contract-name.json")
+    assert proc.returncode == 2
+    for needle in ("confidential-customer-dir", "payroll-secret", "no-such-contract-name"):
+        assert needle not in proc.stdout and needle not in proc.stderr
+
+
+def test_duplicate_json_keys_and_bom_contract(tmp_path: Path) -> None:
+    good = workbook(tmp_path / "g.xlsx")
+    dup = tmp_path / "dup.json"
+    dup.write_text('{"schema_version": 1, "schema_version": 1}', encoding="utf-8")
+    assert run_cli(good, "--contract", dup).returncode == 2
+    bom = tmp_path / "bom.json"
+    bom.write_bytes(b"\xef\xbb\xbf" + json.dumps(contract()).encode("utf-8"))
+    assert run_cli(good, "--contract", bom).returncode == 0
+
+
+def test_output_is_deterministic(tmp_path: Path) -> None:
+    good = workbook(tmp_path / "g.xlsx", count=9)
+    rules = write_contract(tmp_path / "c.json")
+    first, second = run_cli(good, "--contract", rules), run_cli(good, "--contract", rules)
+    assert first.returncode == second.returncode == 1
+    assert first.stdout == second.stdout
+
+
+def test_exit_code_fail_is_one(tmp_path: Path) -> None:
+    proc = run_cli(workbook(tmp_path / "g.xlsx", count=9), "--contract", write_contract(tmp_path / "c.json"))
+    assert proc.returncode == 1 and json.loads(proc.stdout)["status"] == "FAIL"
